@@ -9,13 +9,13 @@ import streamlit as st
 
 model=joblib.load(open("linear_regression_model.joblib",'rb'))
 st.title("Prediction")
-MPG=st.number_input("MPG",min_value=0)
-VOL=st.number_input("VOL",min_value=0)
-SP=st.number_input("SP",min_value=0)
-WT=st.number_input("WT",min_value=0)
+MPG=st.number_input("MPG",min_value=0.0)
+VOL=st.number_input("VOL",min_value=0.0)
+SP=st.number_input("SP",min_value=0.0)
+WT=st.number_input("WT",min_value=0.0)
 
 '''Mke pred'''
 if st.button('predict sles'):
     input_data=np.array([[MPG,VOL,SP,WT]])
     prediction=model.predict(input_data)[0]
-    st.success(f"predict sles:{prediction:.2f}")
+    st.success(f'predict sles:{prediction:.2f}')
